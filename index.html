@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AITutorHub - AI-Powered Personalized Learning (SDG 4)</title>
+    <meta name="description" content="AITutorHub is an AI-powered personalized learning platform addressing SDG 4 (Quality Education) by offering interactive tutoring, automated quizzes, study plans, career guidance, and voice interaction.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- App Background Gradients -->
+    <div class="bg-gradient-orb bg-orb-1"></div>
+    <div class="bg-gradient-orb bg-orb-2"></div>
+
+    <!-- Main Container -->
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="app-sidebar">
+            <div class="sidebar-brand">
+                <div class="logo-icon">
+                    <i data-lucide="graduation-cap"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>AITutorHub</h1>
+                    <span>SDG 4 Education</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <button class="nav-btn active" data-tab="home" id="nav-btn-home">
+                    <i data-lucide="home"></i> <span>Home</span>
+                </button>
+                <button class="nav-btn" data-tab="dashboard" id="nav-btn-dashboard">
+                    <i data-lucide="layout-dashboard"></i> <span>Dashboard</span>
+                </button>
+                <button class="nav-btn" data-tab="tutor" id="nav-btn-tutor">
+                    <i data-lucide="message-square-text"></i> <span>AI Voice Tutor</span>
+                </button>
+                <button class="nav-btn" data-tab="quizzes" id="nav-btn-quizzes">
+                    <i data-lucide="check-square"></i> <span>AI Quizzes</span>
+                </button>
+                <button class="nav-btn" data-tab="planner" id="nav-btn-planner">
+                    <i data-lucide="calendar"></i> <span>Study Planner</span>
+                </button>
+                <button class="nav-btn" data-tab="career" id="nav-btn-career">
+                    <i data-lucide="compass"></i> <span>Career Compass</span>
+                </button>
+                <button class="nav-btn" data-tab="forum" id="nav-btn-forum">
+                    <i data-lucide="users"></i> <span>Community Forum</span>
+                </button>
+                <button class="nav-btn" data-tab="leaderboard" id="nav-btn-leaderboard">
+                    <i data-lucide="trophy"></i> <span>Leaderboard</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="settings-trigger-btn" id="open-settings-btn">
+                    <i data-lucide="settings"></i> <span>Gemini API Key</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header (Gamification & Top Status) -->
+            <header class="app-header">
+                <div class="header-welcome">
+                    <h2 id="header-greeting">Welcome, Learner!</h2>
+                    <p id="header-subtitle">Empowering quality education for all</p>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-badge xp-badge" title="Earn XP by finishing lessons & quizzes">
+                        <i data-lucide="sparkles"></i>
+                        <span id="stat-xp">0 XP</span>
+                    </div>
+                    <div class="stat-badge level-badge" title="Your current level">
+                        <i data-lucide="award"></i>
+                        <span id="stat-level">Lvl 1</span>
+                    </div>
+                    <div class="stat-badge streak-badge" id="streak-badge-container" title="Daily streak - study daily to keep it alive!">
+                        <i data-lucide="flame"></i>
+                        <span id="stat-streak">0 Days</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Views -->
+            <div class="view-viewport">
+                <!-- VIEW: HOME (Landing Page) -->
+                <section class="view-pane active" id="view-home">
+                    <div class="hero-section">
+                        <div class="hero-content">
+                            <span class="badge-sdg4">SDG 4: Quality Education</span>
+                            <h2>Your Personal AI Study Companion Available Everywhere</h2>
+                            <p>AITutorHub brings top-tier personalized tutoring, automated study scheduling, career guidance, and interactive quizzing directly to students. Built to democratize quality education globally.</p>
+                            <div class="hero-actions">
+                                <button class="btn btn-primary" id="hero-start-learning">
+                                    Start Learning Now <i data-lucide="arrow-right"></i>
+                                </button>
+                                <button class="btn btn-secondary" id="hero-setup-key">
+                                    Configure Gemini AI <i data-lucide="key"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="hero-graphic">
+                            <div class="glass-card hero-stats-preview animate-float">
+                                <div class="preview-item">
+                                    <div class="icon-circle bg-teal"><i data-lucide="zap"></i></div>
+                                    <div>
+                                        <h4>100% Adaptive</h4>
+                                        <p>Tailored AI pathways</p>
+                                    </div>
+                                </div>
+                                <div class="preview-item">
+                                    <div class="icon-circle bg-blue"><i data-lucide="mic"></i></div>
+                                    <div>
+                                        <h4>Voice Guided</h4>
+                                        <p>Speech tutor integration</p>
+                                    </div>
+                                </div>
+                                <div class="preview-item">
+                                    <div class="icon-circle bg-purple"><i data-lucide="book-open"></i></div>
+                                    <div>
+                                        <h4>Offline Capable</h4>
+                                        <p>Study on the go</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SDG 4 Info Section -->
+                    <div class="sdg-info-section">
+                        <h3>About SDG 4: Quality Education</h3>
+                        <p>Sustainable Development Goal 4 aims to ensure inclusive and equitable quality education and promote lifelong learning opportunities for all. AITutorHub directly supports this goal by eliminating barriers to personal mentoring and expert instruction through the power of client-side Generative AI.</p>
+                    </div>
+
+                    <!-- Platform Features Grid -->
+                    <div class="features-grid">
+                        <div class="glass-card feature-card">
+                            <i data-lucide="message-square" class="feature-icon text-blue"></i>
+                            <h3>Interactive AI Tutor</h3>
+                            <p>Converse with an AI tutor that explains complex concepts, solves problems step-by-step, and adapts to your language.</p>
+                        </div>
+                        <div class="glass-card feature-card">
+                            <i data-lucide="mic" class="feature-icon text-teal"></i>
+                            <h3>Voice Interaction</h3>
+                            <p>Speak to your tutor and listen to responses. Perfect for auditory learners or language learning exercises.</p>
+                        </div>
+                        <div class="glass-card feature-card">
+                            <i data-lucide="check-square" class="feature-icon text-purple"></i>
+                            <h3>Instant AI Quizzes</h3>
+                            <p>Generate assessments on any topic dynamically. Receive immediate scoring, explanations, and XP.</p>
+                        </div>
+                        <div class="glass-card feature-card">
+                            <i data-lucide="calendar" class="feature-icon text-orange"></i>
+                            <h3>Goal Study Plans</h3>
+                            <p>Turn ambitious learning targets into structured day-by-day calendars dynamically generated for you.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- VIEW: DASHBOARD -->
+                <section class="view-pane" id="view-dashboard">
+                    <div class="dashboard-grid">
+                        <!-- Left Column: Primary widgets -->
+                        <div class="dash-column">
+                            <div class="glass-card welcome-card">
+                                <h3>Keep it up, <span id="dash-username">Learner</span>!</h3>
+                                <p>You have earned <strong id="dash-total-xp">0 XP</strong> and are currently level <strong id="dash-current-level">1</strong>. Study today to increase your streak.</p>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar-label">
+                                        <span>Progress to Level <span id="dash-next-level">2</span></span>
+                                        <span id="dash-xp-progress-percent">0%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" id="dash-xp-progress-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card section-card">
+                                <div class="card-header">
+                                    <h3><i data-lucide="route"></i> Personalized Learning Path</h3>
+                                    <button class="btn btn-sm btn-outline" id="btn-rebuild-path">Generate New Path</button>
+                                </div>
+                                <div id="learning-path-content" class="learning-path-timeline">
+                                    <!-- Dynamic content loaded via JS -->
+                                    <div class="empty-state">
+                                        <i data-lucide="milestone"></i>
+                                        <p>Generate a path to get custom lesson roadmaps based on your learning goals.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Secondary widgets / achievements -->
+                        <div class="dash-column">
+                            <div class="glass-card section-card">
+                                <h3><i data-lucide="award"></i> Achievements & Badges</h3>
+                                <div class="badges-shelf" id="badges-shelf">
+                                    <!-- Dynamic badges -->
+                                </div>
+                            </div>
+
+                            <div class="glass-card section-card">
+                                <h3><i data-lucide="trending-up"></i> Performance Predictions</h3>
+                                <div class="predictions-widget">
+                                    <div class="pred-item">
+                                        <span class="pred-label">Engagement Level:</span>
+                                        <span class="pred-value text-teal" id="pred-engagement">High</span>
+                                    </div>
+                                    <div class="pred-item">
+                                        <span class="pred-label">Predicted Completion Date:</span>
+                                        <span class="pred-value" id="pred-completion">2 Weeks</span>
+                                    </div>
+                                    <div class="pred-item">
+                                        <span class="pred-label">Suggested Area of Focus:</span>
+                                        <span class="pred-value" id="pred-weakness">None (Start studying!)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- VIEW: AI VOICE TUTOR -->
+                <section class="view-pane" id="view-tutor">
+                    <div class="tutor-container glass-card">
+                        <div class="tutor-header">
+                            <div class="tutor-avatar">
+                                <div class="avatar-glow"></div>
+                                <i data-lucide="bot"></i>
+                            </div>
+                            <div class="tutor-info">
+                                <h3>AIAssistant Tutor</h3>
+                                <p id="tutor-status">Ready to teach you</p>
+                            </div>
+                            <div class="tutor-controls">
+                                <button class="btn-icon" id="tutor-voice-toggle" title="Toggle Voice Output (Text-to-Speech)">
+                                    <i data-lucide="volume-2"></i>
+                                </button>
+                                <button class="btn-icon" id="tutor-clear-chat" title="Clear conversation history">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Chat Messages View -->
+                        <div class="tutor-messages" id="tutor-chat-messages">
+                            <div class="message system-msg">
+                                <p>Hello! I am your AI Tutor. Ask me any question about math, science, history, programming, or language, and I will explain it step-by-step.</p>
+                            </div>
+                        </div>
+
+                        <!-- Chat Input bar -->
+                        <div class="tutor-input-area">
+                            <button class="btn-icon voice-record-btn" id="tutor-mic-btn" title="Hold/Click to speak your question">
+                                <i data-lucide="mic"></i>
+                            </button>
+                            <input type="text" id="tutor-text-input" placeholder="Type a question or click the mic to speak..." autocomplete="off">
+                            <button class="btn btn-primary btn-send" id="tutor-send-btn">
+                                <i data-lucide="send"></i>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- VIEW: AI QUIZZES -->
+                <section class="view-pane" id="view-quizzes">
+                    <div class="quiz-container glass-card">
+                        <!-- Setup Form -->
+                        <div class="quiz-setup" id="quiz-setup-panel">
+                            <h3><i data-lucide="pencil"></i> Dynamic AI Quiz Generator</h3>
+                            <p>Generate multiple choice tests on any subject. AI evaluates your answers and updates your score.</p>
+                            
+                            <div class="form-group">
+                                <label for="quiz-topic">Quiz Topic</label>
+                                <input type="text" id="quiz-topic" placeholder="e.g. Newton's Laws, Python Basics, Ancient Egypt">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="quiz-difficulty">Difficulty</label>
+                                    <select id="quiz-difficulty">
+                                        <option value="easy">Easy / Beginner</option>
+                                        <option value="medium" selected>Medium / Intermediate</option>
+                                        <option value="hard">Hard / Advanced</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="quiz-count">Number of Questions</label>
+                                    <select id="quiz-count">
+                                        <option value="3">3 Questions</option>
+                                        <option value="5" selected>5 Questions</option>
+                                        <option value="10">10 Questions</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary" id="btn-generate-quiz">
+                                Generate Quiz with AI <i data-lucide="sparkles"></i>
+                            </button>
+                        </div>
+
+                        <!-- Quiz Active State -->
+                        <div class="quiz-active hidden" id="quiz-active-panel">
+                            <div class="quiz-header">
+                                <span class="badge-topic" id="quiz-active-topic">Topic</span>
+                                <div class="quiz-timer">
+                                    <i data-lucide="clock"></i>
+                                    <span id="quiz-time-display">00:00</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Question Counter -->
+                            <div class="question-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="quiz-progress-fill" style="width: 10%"></div>
+                                </div>
+                                <span id="quiz-question-counter">Question 1 of 5</span>
+                            </div>
+
+                            <div class="question-box">
+                                <h4 id="quiz-question-text">Loading question text...</h4>
+                                <div class="options-grid" id="quiz-options-container">
+                                    <!-- Dynamic options load -->
+                                </div>
+                            </div>
+
+                            <div class="quiz-actions">
+                                <button class="btn btn-secondary hidden" id="btn-quiz-prev">Previous</button>
+                                <button class="btn btn-primary" id="btn-quiz-next">Next <i data-lucide="chevron-right"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Quiz Results State -->
+                        <div class="quiz-results hidden" id="quiz-results-panel">
+                            <div class="results-graphic animate-pop">
+                                <i data-lucide="check-circle-2" class="text-teal success-icon"></i>
+                                <h2>Quiz Completed!</h2>
+                                <div class="score-display">
+                                    <span id="results-score">0 / 0</span>
+                                    <span class="score-label">Questions Correct</span>
+                                </div>
+                            </div>
+
+                            <div class="rewards-summary glass-card">
+                                <h3>XP & Progress Rewards</h3>
+                                <div class="reward-row">
+                                    <span>XP Earned:</span>
+                                    <span class="text-teal font-bold" id="reward-xp">+0 XP</span>
+                                </div>
+                                <div class="reward-row">
+                                    <span>Streak Maintained:</span>
+                                    <span class="text-orange font-bold"><i data-lucide="flame"></i> Keep it up!</span>
+                                </div>
+                            </div>
+
+                            <div class="question-review-list" id="quiz-review-container">
+                                <!-- Detailed list of questions and answers -->
+                            </div>
+
+                            <button class="btn btn-primary btn-block" id="btn-quiz-restart">Try Another Quiz</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- VIEW: STUDY PLANNER -->
+                <section class="view-pane" id="view-planner">
+                    <div class="planner-grid">
+                        <div class="glass-card planner-setup-card">
+                            <h3><i data-lucide="calendar"></i> AI Study Goal Planner</h3>
+                            <p>Define your learning objective, specify the timeline, and let Gemini construct a structured calendar study schedule.</p>
+                            
+                            <div class="form-group">
+                                <label for="plan-goal">What do you want to learn?</label>
+                                <input type="text" id="plan-goal" placeholder="e.g., Learn basic JavaScript, Master Calculus derivatives">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="plan-duration">Study Period (Weeks)</label>
+                                    <select id="plan-duration">
+                                        <option value="1">1 Week Intensive</option>
+                                        <option value="2">2 Weeks</option>
+                                        <option value="4" selected>4 Weeks (1 Month)</option>
+                                        <option value="6">6 Weeks</option>
+                                        <option value="8">8 Weeks</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="plan-intensity">Daily Commit Time</label>
+                                    <select id="plan-intensity">
+                                        <option value="light">30 mins / day</option>
+                                        <option value="medium" selected>1 hour / day</option>
+                                        <option value="heavy">2+ hours / day</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary btn-block" id="btn-generate-plan">
+                                Generate Study Schedule <i data-lucide="sparkles"></i>
+                            </button>
+                        </div>
+
+                        <!-- Generated Plan display -->
+                        <div class="glass-card planner-display-card">
+                            <h3>Interactive Study Plan</h3>
+                            <div id="planner-schedule-container" class="schedule-timeline">
+                                <div class="empty-state">
+                                    <i data-lucide="calendar-plus"></i>
+                                    <p>Fill out the parameters on the left to output your personalized day-by-day learning calendar.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- VIEW: CAREER COMPASS -->
+                <section class="view-pane" id="view-career">
+                    <div class="career-container glass-card">
+                        <div id="career-start-panel">
+                            <div class="text-center">
+                                <i data-lucide="compass" class="career-compass-icon text-blue animate-float"></i>
+                                <h2>AI Career Guidance Compass</h2>
+                                <p>Unsure where your interests lead? Take our interactive questionnaire. The Gemini model analyzes your skills, interests, and academic goals to guide your future career paths and recommend customized learning blueprints.</p>
+                                <button class="btn btn-primary" id="btn-start-career-test">Begin Career Assessment</button>
+                            </div>
+                        </div>
+
+                        <!-- Questionnaire Panel -->
+                        <div class="career-questions hidden" id="career-quiz-panel">
+                            <div class="question-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="career-progress-fill" style="width: 20%"></div>
+                                </div>
+                                <span id="career-question-counter">Question 1 of 5</span>
+                            </div>
+
+                            <div class="career-question-box">
+                                <h3 id="career-question-text">Question Prompt</h3>
+                                <div class="options-grid" id="career-options-container">
+                                    <!-- Options populated dynamically -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Assessment Results Panel -->
+                        <div class="career-results hidden" id="career-results-panel">
+                            <h2>Your Custom Career Blueprint</h2>
+                            <p class="subtitle">Based on your assessment responses, Gemini has structured these pathways for you:</p>
+                            
+                            <div id="career-results-cards" class="career-cards-grid">
+                                <!-- Cards populated dynamically -->
+                            </div>
+
+                            <button class="btn btn-outline btn-block" id="btn-restart-career">Take Assessment Again</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- VIEW: COMMUNITY FORUM -->
+                <section class="view-pane" id="view-forum">
+                    <div class="forum-layout">
+                        <!-- Left Panel: Thread Navigation -->
+                        <div class="forum-threads-list glass-card">
+                            <div class="forum-header">
+                                <h3>Discussions</h3>
+                                <button class="btn btn-sm btn-primary" id="btn-new-thread">
+                                    New Topic <i data-lucide="plus"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="forum-search-bar">
+                                <i data-lucide="search"></i>
+                                <input type="text" id="forum-search-input" placeholder="Search threads...">
+                            </div>
+
+                            <div id="forum-threads-container" class="threads-scroll">
+                                <!-- Dynamic threads loaded here -->
+                            </div>
+                        </div>
+
+                        <!-- Right Panel: Thread Details -->
+                        <div class="forum-thread-detail glass-card" id="forum-detail-card">
+                            <div class="empty-state" id="forum-detail-empty">
+                                <i data-lucide="messages-square"></i>
+                                <p>Select a thread to view comments or create a new topic to start learning collectively.</p>
+                            </div>
+
+                            <div class="thread-content-view hidden" id="forum-detail-view">
+                                <div class="thread-header-block">
+                                    <div class="thread-meta">
+                                        <span class="thread-author" id="thread-author-name">Author</span>
+                                        <span class="thread-date" id="thread-post-date">Just Now</span>
+                                    </div>
+                                    <h2 id="thread-title-display">Thread Title</h2>
+                                    <p id="thread-body-display">Thread body description goes here.</p>
+                                    <div class="thread-actions">
+                                        <button class="btn-text" id="btn-upvote-thread">
+                                            <i data-lucide="thumbs-up"></i> <span id="thread-upvotes-count">0</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="thread-replies" id="thread-replies-list">
+                                    <!-- Replies loaded dynamically -->
+                                </div>
+
+                                <div class="reply-editor-area">
+                                    <textarea id="reply-textarea" placeholder="Add your constructive reply..." rows="3"></textarea>
+                                    <button class="btn btn-primary btn-sm" id="btn-submit-reply">Post Reply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Thread Modal -->
+                    <div class="modal-overlay hidden" id="new-thread-modal">
+                        <div class="glass-card modal-content">
+                            <div class="modal-header">
+                                <h3>Create a New Discussion Topic</h3>
+                                <button class="btn-icon" id="close-thread-modal-btn">
+                                    <i data-lucide="x"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="new-thread-title">Topic Title</label>
+                                    <input type="text" id="new-thread-title" placeholder="What is your question or discussion point?">
+                                </div>
+                                <div class="form-group">
+                                    <label for="new-thread-body">Content Details</label>
+                                    <textarea id="new-thread-body" placeholder="Describe your topic in detail..." rows="5"></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" id="btn-cancel-thread">Cancel</button>
+                                <button class="btn btn-primary" id="btn-submit-thread">Post Topic</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- VIEW: LEADERBOARD -->
+                <section class="view-pane" id="view-leaderboard">
+                    <div class="leaderboard-grid">
+                        <div class="glass-card ranking-card">
+                            <h3><i data-lucide="award"></i> Global Learner Ranking</h3>
+                            <p class="subtitle">Join other learners across the globe in keeping daily streaks and scoring high on study assessments.</p>
+                            
+                            <div class="ranking-list" id="ranking-list-container">
+                                <!-- Dynamic ranking content -->
+                            </div>
+                        </div>
+
+                        <div class="glass-card leaderboard-info-card">
+                            <h3>How to Climb the Ranks</h3>
+                            <div class="rule-item">
+                                <div class="icon-circle bg-teal"><i data-lucide="flame"></i></div>
+                                <div>
+                                    <h4>Streaks</h4>
+                                    <p>Studying daily increases your streak multiplier. Keep it alive!</p>
+                                </div>
+                            </div>
+                            <div class="rule-item">
+                                <div class="icon-circle bg-blue"><i data-lucide="check-square"></i></div>
+                                <div>
+                                    <h4>AI Quizzes</h4>
+                                    <p>Get high scores on AI generated quizzes to earn massive XP boosts.</p>
+                                </div>
+                            </div>
+                            <div class="rule-item">
+                                <div class="icon-circle bg-purple"><i data-lucide="calendar"></i></div>
+                                <div>
+                                    <h4>Study Plan Tasks</h4>
+                                    <p>Finish daily milestones in your generated Study Plan timeline.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- SETTINGS MODAL (API KEY) -->
+    <div class="modal-overlay hidden" id="settings-modal">
+        <div class="glass-card modal-content animate-pop">
+            <div class="modal-header">
+                <h3>Gemini AI Credentials</h3>
+                <button class="btn-icon" id="close-settings-btn">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-info">
+                    <i data-lucide="info"></i>
+                    <p>To enable the AI Tutor chat, quiz generation, study schedules, and career guidance, you need to input your <strong>Gemini API Key</strong>. It is stored 100% locally in your browser's LocalStorage and is never sent to any external server other than Google's Gemini API endpoints.</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="gemini-api-key-input">Gemini API Key</label>
+                    <input type="password" id="gemini-api-key-input" placeholder="AIzaSy...">
+                </div>
+
+                <div class="api-status" id="api-key-status">
+                    <span class="badge-status status-missing" id="key-status-badge">API Key Missing</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="btn-clear-api-key">Clear Key</button>
+                <button class="btn btn-primary" id="btn-save-api-key">Save Credentials</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast hidden" id="app-toast">
+        <i data-lucide="info" id="toast-icon"></i>
+        <span id="toast-message">Notification message here</span>
+    </div>
+
+    <!-- App JS -->
+    <script src="app.js"></script>
+</body>
+</html>
