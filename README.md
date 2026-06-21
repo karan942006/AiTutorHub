@@ -53,5 +53,5 @@ The repository includes a automated GitHub Action workflow under [.github/workfl
 1. Create a new repository on GitHub.
 2. Commit and push your code to the `main` or `master` branch.
 3. Go to your repository **Settings** -> **Pages**.
-4. Set **Source** to `Deploy from a branch` and select the `gh-pages` branch.
+4. Set **Source** to `Deploy from a branch` and select the `pages` branch.
 5. Save, and your site will be live at `https://<your-username>.github.io/<your-repo-name>/`.
